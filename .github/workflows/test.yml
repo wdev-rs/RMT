@@ -17,22 +17,22 @@ jobs:
 #            symfony-version: 4.4
           - php-version: 7.4
             symfony-version: 5.0
-#          - php-version: 7.4
-#            symfony-version: 4.4
-#          - php-version: 7.4
-#            symfony-version: 4.3.
-#          - php-version: 7.3
-#            symfony-version: 5.0
-#          - php-version: 7.3
-#            symfony-version: 4.4
-#          - php-version: 7.3
-#            symfony-version: 4.3
-#          - php-version: 7.2
-#            symfony-version: 4.2
-#          - php-version: 7.1
-#            symfony-version: 3.4
-#          - php-version: 7.1
-#            symfony-version: 2.8
+          - php-version: 7.4
+            symfony-version: 4.4
+          - php-version: 7.4
+            symfony-version: 4.3.
+          - php-version: 7.3
+            symfony-version: 5.0
+          - php-version: 7.3
+            symfony-version: 4.4
+          - php-version: 7.3
+            symfony-version: 4.3
+          - php-version: 7.2
+            symfony-version: 4.2
+          - php-version: 7.1
+            symfony-version: 3.4
+          - php-version: 7.1
+            symfony-version: 2.8
     steps:
     - uses: actions/checkout@v2
     - name: Setup PHP
@@ -48,7 +48,7 @@ jobs:
       run: |
         composer self-update
         composer require "symfony/console:^${{ matrix.symfony-version }}" "symfony/yaml:^${{ matrix.symfony-version }}" "symfony/process:^${{ matrix.symfony-version }}" --no-update;
-        composer require "phpunit/phpunit:^8.0" --dev
+        composer require "phpunit/phpunit" --dev
         composer update --prefer-dist
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: bin/phpunit
