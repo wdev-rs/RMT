@@ -47,7 +47,7 @@ jobs:
       run: |
            composer self-update
            if [ "$matrix.symfony-version" != "" ]; then composer require "symfony/console:${{ matrix.symfony-version }}" "symfony/yaml:${{ matrix.symfony-version }}" "symfony/process:${{ matrix.symfony-version }}" --no-update; fi;
+           if [[ "$matrix.php-version" == "8.0" ]]; then composer require "phpunit/phpunit: ^9" fi
            composer update --prefer-dist
-           if [[ $matrix.php-version == "8.0" ]]; then composer require "phpunit/phpunit: ^9" fi
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
