@@ -41,10 +41,8 @@ jobs:
            php-version: ${{ matrix.php-version }}
     - name: Git config
       run: |
-            rm ~/.gitconfig
-            mkdir ~/.git;
             git config --global user.email "test@test.com"
-            git config --global user.name "John Doe"
+#            git config --global user.name "John Doe"
     - name: Install Dependencies
       run: composer self-update |
            if [ "$matrix.symfony-version" != "" ]; then composer require "symfony/console:${{ matrix.symfony-version }}" "symfony/yaml:${{ matrix.symfony-version }}" "symfony/process:${{ matrix.symfony-version }}" --no-update; fi;
