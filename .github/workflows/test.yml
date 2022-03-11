@@ -49,5 +49,6 @@ jobs:
         composer update --prefer-dist
         composer require "symfony/console:${{ matrix.symfony-version }}" "symfony/yaml:${{ matrix.symfony-version }}" "symfony/process:${{ matrix.symfony-version }}" --no-update;
         if [ "${{ matrix.php-version }}" == "8.0" ]; then composer require "phpunit/phpunit:^9" --no-update; fi;
+        composer require "phpunit/phpunit:^9
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
