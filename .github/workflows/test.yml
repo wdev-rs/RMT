@@ -48,7 +48,7 @@ jobs:
       run: |
         composer self-update
         composer require "symfony/console:^${{ matrix.symfony-version }}" "symfony/yaml:^${{ matrix.symfony-version }}" "symfony/process:^${{ matrix.symfony-version }}" --no-update;
-        composer require "phpunit/phpunit" --dev
         composer update --prefer-dist
+        composer require "phpunit/phpunit" --dev
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: bin/phpunit
