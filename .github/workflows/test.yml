@@ -39,6 +39,7 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
            php-version: ${{ matrix.php-version }}
+           ini-values: phar.readonly=0
     - name: Git config email
       run: git config --global user.email "test@test.com"
     - name: Git config name
