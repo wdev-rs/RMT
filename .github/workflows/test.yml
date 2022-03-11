@@ -27,7 +27,7 @@ jobs:
           - php-version: 7.3
             symfony-version: 4.3.*
           - php-version: 7.2
-            symfony-version 4.2.*
+            symfony-version: 4.2.*
           - php-version: 7.1
             symfony-version: 3.4.*
           - php-version: 7.1
