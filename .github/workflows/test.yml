@@ -40,12 +40,14 @@ jobs:
       with:
            php-version: ${{ matrix.php-version }}
     - name: Git config
-      run: |
-            git config --global user.email "test@test.com"
+      run: git config --global user.email "test@test.com"
+    - name: Git config2
+      run: git config --global user.name "John Doe"
 #            git config --global user.name "John Doe"
     - name: Install Dependencies
       run: composer self-update |
            if [ "$matrix.symfony-version" != "" ]; then composer require "symfony/console:${{ matrix.symfony-version }}" "symfony/yaml:${{ matrix.symfony-version }}" "symfony/process:${{ matrix.symfony-version }}" --no-update; fi;
            composer update --prefer-dist
+           if [[ $matrix.php-version == "8.0" ]]; then composer require "phpunit/phpunit:^9" fi
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
